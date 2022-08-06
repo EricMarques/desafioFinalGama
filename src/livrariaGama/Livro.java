@@ -69,14 +69,7 @@ public class Livro {
 	}
 
 	public void mostraAutor(String autorLido){
-		System.out.println(autorLido);
-		System.out.println("========");
-		System.out.println(autor.getNome());
-		if (autorLido == autor.getNome()) {
-			System.out.println(getTitulo());
-		} else {
-			System.out.println("Livro não encontrado!");	
-		}
+
 	}
 
 	@Override

@@ -1,11 +1,14 @@
 package livrariaGama;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Autor {
     private String nome;
     private String nacionalidade;
     private int idade;
     private String sexo;
-
+    
     //Livro livro = new Livro();
 
     public Autor() {
@@ -17,6 +20,7 @@ public class Autor {
         this.idade = idade;
         this.sexo = sexo;
     }
+
 
     public String getNome() {
         return this.nome;
@@ -59,7 +63,7 @@ public class Autor {
 
     @Override
     public String toString() {
-        System.out.println("===Autor===");
+       // System.out.println("===Autor===");
         return  "Nome = " + getNome() +
                 "\nNacionalidade = " + getNacionalidade() +
                 "\nIdade = " + getIdade() +
