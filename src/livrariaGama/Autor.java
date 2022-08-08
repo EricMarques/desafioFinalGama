@@ -1,13 +1,16 @@
 package livrariaGama;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Autor {
     private String nome;
     private String nacionalidade;
     private int idade;
     private String sexo;
+    List<Autor> autores = new ArrayList<Autor>();
+    
     
     //Livro livro = new Livro();
 
@@ -21,6 +24,9 @@ public class Autor {
         this.sexo = sexo;
     }
 
+    public void setAutor(String nome, String nacionalidade, int idade, String sexo){
+        autores.add(new Autor(nome, nacionalidade, idade, sexo));
+    }
 
     public String getNome() {
         return this.nome;
@@ -57,9 +63,7 @@ public class Autor {
         this.sexo = sexo;
     }
 
-    /*public void mostraLivro(String livro){
-        System.out.println(this.livro.getTitulo());
-    }*/
+
 
     @Override
     public String toString() {
