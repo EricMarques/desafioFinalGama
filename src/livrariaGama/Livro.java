@@ -9,14 +9,12 @@ import java.util.List;
 public class Livro {
 
 	private String titulo;
-	// private String autor;
 	private Date ano;
 	private int edicao;
 	private String editora;
 	private String ISBN;
-	List<Livro> livros = new ArrayList<Livro>();
 
-	Autor autor = new Autor();
+	private Autor autor = new Autor();
 
 	public Livro(String titulo, Autor autor, String ano, int edicao, String editora, String ISBN)
 			throws ParseException {
@@ -29,11 +27,6 @@ public class Livro {
 		this.ISBN = ISBN;
 	}
 
-	public void setLivro(String titulo, Autor autor, String ano, int edicao, String editora, String ISBN)
-			throws ParseException {
-		livros.add(new Livro(titulo, autor, ano, edicao, editora, ISBN));
-	}
-
 	public Livro() {
 
 	}
@@ -43,7 +36,7 @@ public class Livro {
 	}
 
 	public String getTitulo() {
-		return titulo;
+		return this.titulo;
 	}
 
 	public void setTitulo(String titulo) {
@@ -51,7 +44,7 @@ public class Livro {
 	}
 
 	public Date getAno() {
-		return ano;
+		return this.ano;
 	}
 
 	public void setAno(Date ano) {
@@ -59,7 +52,7 @@ public class Livro {
 	}
 
 	public int getEdicao() {
-		return edicao;
+		return this.edicao;
 	}
 
 	public void setEdicao(int edicao) {
@@ -67,7 +60,7 @@ public class Livro {
 	}
 
 	public String getEditora() {
-		return editora;
+		return this.editora;
 	}
 
 	public void setEditora(String editora) {
@@ -75,38 +68,15 @@ public class Livro {
 	}
 
 	public String getISBN() {
-		return ISBN;
+		return this.ISBN;
 	}
 
-	public void setISBN(String iSBN) {
-		ISBN = iSBN;
+	public void setISBN(String ISBN) {
+		this.ISBN = ISBN;
 	}
 
-	public void mostraLivroDoAutor(String nome) {
-		if (livros.toString().contains(nome) == true) {
-			System.out.println("Os Livros cadastrados do escritor " + nome + " são: ");
-			for (int j = 0; j < livros.size(); j++) {
-				if (livros.get(j).toString().contains(nome) == true) {
-					System.out.println(livros.get(j).getTitulo().intern());
-				}
-			}
-		} else {
-			System.out.println("Livro não cadastrado!");
-		}
-	}
-
-	public void mostraAutorLivro(String nome) {
-		if (livros.toString().contains(nome) == true) {
-			System.out.println("O escritor do livro " + nome + " é: ");
-			for (int i = 0; i < livros.size(); i++) {
-				if (livros.get(i).toString().contains(nome) == true) {
-					String autor = livros.get(i).getAutor().getNome();
-					System.out.println(autor);
-				}
-			}
-		} else {
-			System.out.println("Escritor não cadastrado!");
-		}
+	public String getNomeAutor(String nome) {
+		return this.autor.getNome();
 	}
 
 	@Override

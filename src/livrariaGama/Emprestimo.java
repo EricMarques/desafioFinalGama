@@ -12,17 +12,16 @@ public class Emprestimo {
 	private LocalDate dataDeEntregaReal;
 	private int situacao;
 	private Livro titulo;
-
 	private Usuario usuario;
+	private double multa = 0.5;
+	private Boolean devolvido = false;
 
 	LocalDate data = LocalDate.now();
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-	private double multa = 0.5;
-
 	Livro livro = new Livro();
 	Usuario usuarioFinal = new Usuario();
-	private Boolean devolvido = false;
+	
 
 	public Emprestimo(Livro titulo, Usuario usuario, int situacao) {
 		this.dataDeEmprestimo = data;
@@ -93,8 +92,7 @@ public class Emprestimo {
 				int diasDiferenca = periodo.getDays();
 				if (diasDiferenca > 0) {
 					multa *= diasDiferenca;
-					this.devolvido = devolvido;
-					System.out.println(devolvido);
+					devolvido = true;
 					return "Livro devolvido em atraso!\n" + String.format("Multa de entrega atrasada: R$%.2f", multa);
 				}
 			}if (dataDeEntregaReal.isBefore(dataPrevistaDeDevolucao) && devolvido == true) {
@@ -107,8 +105,7 @@ public class Emprestimo {
 				int diasDiferenca = periodo.getDays();
 				if (diasDiferenca > 0) {
 					multa *= diasDiferenca;
-					this.devolvido = devolvido;
-					System.out.println(devolvido);
+					devolvido = false;
 				return "Em atraso!\n"+ String.format("Valor a ser pago: R$%.2f", multa);
 				}
 			}

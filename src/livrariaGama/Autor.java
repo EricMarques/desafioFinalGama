@@ -3,16 +3,14 @@ package livrariaGama;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Autor {
+
     private String nome;
     private String nacionalidade;
     private int idade;
     private String sexo;
-    List<Autor> autores = new ArrayList<Autor>();
-    
-    
-    //Livro livro = new Livro();
+
+    // Livro livro = new Livro();
 
     public Autor() {
     }
@@ -22,10 +20,6 @@ public class Autor {
         this.nacionalidade = nacionalidade;
         this.idade = idade;
         this.sexo = sexo;
-    }
-
-    public void setAutor(String nome, String nacionalidade, int idade, String sexo){
-        autores.add(new Autor(nome, nacionalidade, idade, sexo));
     }
 
     public String getNome() {
@@ -53,7 +47,7 @@ public class Autor {
     }
 
     public String getSexo() {
-        if (sexo == "F" || sexo == "f"){
+        if (sexo == "F" || sexo == "f") {
             return "Feminino";
         }
         return "Masculino";
@@ -63,12 +57,10 @@ public class Autor {
         this.sexo = sexo;
     }
 
-
-
     @Override
     public String toString() {
-       // System.out.println("===Autor===");
-        return  "Nome = " + getNome() +
+        // System.out.println("===Autor===");
+        return "Nome = " + getNome() +
                 "\nNacionalidade = " + getNacionalidade() +
                 "\nIdade = " + getIdade() +
                 "\nSexo = " + getSexo();

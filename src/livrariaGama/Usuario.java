@@ -1,16 +1,17 @@
 package livrariaGama;
+
 public class Usuario {
 
     private String nome;
     private long CPF;
     private String telefone;
-    private static String matricula = "0";
+    private String matricula;
 
-    public Usuario(String nome, int CPF, String telefone, String matricula) {
+    public Usuario(String nome, int CPF, String telefone) {
         this.nome = nome;
         this.CPF = CPF;
         this.telefone = telefone;
-        Usuario.matricula = matricula;
+        this.matricula = Math.random() + "";
     }
 
     public Usuario() {
@@ -18,7 +19,6 @@ public class Usuario {
     }
 
     public String getNome() {
-
         return nome;
     }
 
@@ -28,39 +28,23 @@ public class Usuario {
     }
 
     public long getCPF() {
-
         return CPF;
     }
 
     public void setCPF(int CPF) {
-
         this.CPF = CPF;
     }
 
     public String getTelefone() {
-
-		return telefone;
+        return telefone;
     }
 
     public void setTelefone(String telefone) {
-
-		this.telefone = telefone;
+        this.telefone = telefone;
     }
 
     public String getMatricula() {
-
-		return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        Usuario.matricula = matricula;
-
-    }
-
-    public static String numeroMatricula() {
-        int numeroMatricula = Integer.parseInt(matricula);
-        numeroMatricula++;
-        return matricula = String.valueOf(numeroMatricula);
+        return matricula;
     }
 
     public void mostrarUsuario() {
@@ -69,7 +53,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return  "Nome = " + getNome() +
+        return "Nome = " + getNome() +
                 "\nCPF = " + getCPF() +
                 "\nTelefone = " + getTelefone();
     }
