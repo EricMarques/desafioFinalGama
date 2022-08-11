@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collector;
 
 public class App {
 
@@ -29,26 +30,31 @@ public class App {
 		// System.out.println("++++++++++++++++++");
 		// emprestimo.mostrarEmprestimo(0, true);
 
-		getLivroDoAutor("J.K. Rowling");
+		getLivroDoAutor("Patati");
+		getAutorPeloLivro("Harry Potter");
+		
 	}
 
 	public static String getLivroDoAutor(String nomeAutor) {
 
-		// ERRO AQUI: No value present
-
-		// String titulo = livros.stream()
-		// .filter(e -> e.getAutor().getNome() == nomeAutor)
-		// .findAny()
-		// .get()
-		// .getTitulo();
-		return "erro";
+		String titulo = livros.stream()
+		.filter(e -> e.getAutor().getNome() == nomeAutor)
+		.findAny()
+		.get()
+		.getTitulo();
+		System.out.println("Os livros cadastrados do autor "+nomeAutor+" são: \n"+titulo);
+		return titulo;
 	}
 
-	public static Autor getAutorPeloLivro(String nomeLivro) {
-		return autores.stream()
-				.filter(e -> e.getNome() == nomeLivro)
-				.findFirst()
-				.get();
+	public static String getAutorPeloLivro(String nomeLivro) {
+		String nome = livros.stream()
+				.filter(e -> e.getTitulo() == nomeLivro)
+				.findAny()
+				.get()
+				.getAutor()
+				.getNome();
+				System.out.println("O livro "+nomeLivro+" foi escrito por: \n"+nome);
+				return nome;
 	}
 
 	private static void initData() throws ParseException {
@@ -61,8 +67,9 @@ public class App {
 		livros.add(new Livro("Harry Potter", autor1, "22/07/2018", 5, "Calice", ""));
 		livros.add(new Livro("O Aluno Iluminado", autor2, "01/04/2022", 4, "Patatá", "ABC12344"));
 		livros.add(new Livro("Independencia ou Brasil", autor2, "01/07/1980", 1, "Atlas", "EWRT32432)"));
-		livros.add(new Livro("Independencia ou Brasil - O retorno", autor3, "01/07/1980", 1, "Atlas",
-				"EWRT32432"));
+		livros.add(new Livro("Independencia ou Brasil - O retorno", autor3, "01/07/1980", 1, "Atlas","EWRT32432"));
 	}
+
+	
 
 }

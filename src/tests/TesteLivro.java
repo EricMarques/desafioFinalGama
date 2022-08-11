@@ -18,8 +18,7 @@ public class TesteLivro {
 		Livro livro = new Livro("Harry Potter", autor, "22/07/2018", 5, "Calice", "");
 
 		// Valida que o metodo retorna o nome do livro correto
-		// Assert.assertEquals("Harry Potter",
-		// getLivroDoAutor("J.K.Rolling").getTitulo());
+		Assert.assertEquals("Harry Potter",getLivroDoAutor("J.K.Rolling"));
 
 	}
 
