@@ -57,7 +57,7 @@ public class App {
 				return nome;
 	}
 
-	private static void initData() throws ParseException {
+	public static void initData() throws ParseException {
 		Autor autor1 = new Autor("J.K. Rolling", "Brasileira", 32, "f");
 		Autor autor2 = new Autor("Patati", "Portugûes", 122, "M");
 		Autor autor3 = new Autor("D. Pedro I", "Portugûes", 122, "M");
