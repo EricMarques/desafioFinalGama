@@ -11,9 +11,7 @@ public class TesteExemplar {
 
   @Test
   public void testeGetCodigoExemplar() throws ParseException {
-    Exemplar exemplar = new Exemplar();
-
-    // exemplar.Exemplar(1234, true, false);
+    Exemplar exemplar = new Exemplar(1234, true, false);
 
     // Valida que o metodo retorna o nome do livro correto
     Assert.assertEquals(1234, exemplar.getCodigo());

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collector;
+import java.util.stream.Stream;
 
 public class App {
 
@@ -22,39 +23,30 @@ public class App {
 
 		initData();
 
-		// Usuario user = new Usuario("Rodrigo", 111_111_111 - 11, "61 99999-9999");
-		// Usuario user2 = new Usuario("Eric", 222_222_222 - 22, "61 99999-9999");
-		// Usuario user3 = new Usuario("Joao", 333_333_333 - 33, "61 99999-9999");
-
-		// Emprestimo emprestimo = new Emprestimo(livros.get(0), user, 1);
-		// System.out.println("++++++++++++++++++");
-		// emprestimo.mostrarEmprestimo(0, true);
 
 		getLivroDoAutor("Patati");
-		getAutorPeloLivro("Harry Potter");
-		
+		//getAutorPeloLivro("Harry Potter");
+
 	}
 
+	// Refatorar codigo com o professor
 	public static String getLivroDoAutor(String nomeAutor) {
+		List<Livro> livro = new ArrayList<>();
+		//String titulos = "";
+		livro.addAll(livros);
+		livro.stream().filter(i -> i.getAutor().getNome() == nomeAutor).forEach(
+				i -> System.out.println("Os livros cadastrados do autor " + nomeAutor + " são: \n" + i.getTitulo()));
 
-		String titulo = livros.stream()
-		.filter(e -> e.getAutor().getNome() == nomeAutor)
-		.findAny()
-		.get()
-		.getTitulo();
-		System.out.println("Os livros cadastrados do autor "+nomeAutor+" são: \n"+titulo);
-		return titulo;
+				return livro.get(0).getTitulo();
 	}
 
 	public static String getAutorPeloLivro(String nomeLivro) {
-		String nome = livros.stream()
-				.filter(e -> e.getTitulo() == nomeLivro)
-				.findAny()
-				.get()
-				.getAutor()
-				.getNome();
-				System.out.println("O livro "+nomeLivro+" foi escrito por: \n"+nome);
-				return nome;
+		List<Livro> livro = new ArrayList<>();
+		livro.addAll(livros);
+		livro.stream().filter(i -> i.getTitulo() == nomeLivro).forEach(
+				i -> System.out.println(
+						"Os livros cadastrados do autor de " + nomeLivro + " são: \n" + i.getAutor().getNome()));
+		return livro.toString();
 	}
 
 	public static void initData() throws ParseException {
@@ -67,9 +59,7 @@ public class App {
 		livros.add(new Livro("Harry Potter", autor1, "22/07/2018", 5, "Calice", ""));
 		livros.add(new Livro("O Aluno Iluminado", autor2, "01/04/2022", 4, "Patatá", "ABC12344"));
 		livros.add(new Livro("Independencia ou Brasil", autor2, "01/07/1980", 1, "Atlas", "EWRT32432)"));
-		livros.add(new Livro("Independencia ou Brasil - O retorno", autor3, "01/07/1980", 1, "Atlas","EWRT32432"));
+		livros.add(new Livro("Independencia ou Brasil - O retorno", autor3, "01/07/1980", 1, "Atlas", "EWRT32432"));
 	}
-
-	
 
 }
