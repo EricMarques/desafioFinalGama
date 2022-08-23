@@ -1,60 +1,65 @@
 package livrariaGama;
 
-public class Usuario {
+public class Usuario extends Pessoa {
 
-    private String nome;
-    private long CPF;
-    private String telefone;
-    private String matricula;
+	int idUsuario;
+	String usuario;
+	String senha;
 
-    public Usuario(String nome, int CPF, String telefone) {
-        this.nome = nome;
-        this.CPF = CPF;
-        this.telefone = telefone;
-        this.matricula = Math.random() + "";
-    }
+    public Usuario(int idUsuario, String usuario, String senha) {
+		this.idUsuario = idUsuario;
+		this.usuario = usuario;
+		this.senha = senha;
+	}
+    
+    public  Usuario() {
+		
+	}
 
-    public Usuario() {
+	public int getIdUsuario() {
+		return idUsuario;
+	}
 
-    }
 
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(String nome) {
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
 
-        this.nome = nome;
-    }
 
-    public long getCPF() {
-        return CPF;
-    }
 
-    public void setCPF(int CPF) {
-        this.CPF = CPF;
-    }
+	public String getUsuario() {
+		return usuario;
+	}
 
-    public String getTelefone() {
-        return telefone;
-    }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
 
-    public String getMatricula() {
-        return matricula;
-    }
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
 
-    public void mostrarUsuario() {
-        System.out.printf("Nome: %s\nCPF: %d\nTelefone: %s\n" + "Matricula: %s\n", nome, CPF, telefone, matricula);
+
+
+	public String getSenha() {
+		return senha;
+	}
+
+
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+
+
+	public void mostrarUsuario() {
+        System.out.printf("Nome: %s\nCPF/CNPJ: %d\nTelefone: %s\n" + "Id: %s\n", nome, cpfCnpj, telefone, idUsuario);
     }
 
     @Override
     public String toString() {
-        return "Nome = " + getNome() +
-                "\nCPF = " + getCPF() +
+        return "Nome = " + getUsuario() +
+                "\nID = " + getIdUsuario() +
                 "\nTelefone = " + getTelefone();
     }
 

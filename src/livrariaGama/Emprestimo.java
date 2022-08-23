@@ -117,7 +117,7 @@ public class Emprestimo {
 	public void mostrarEmprestimo(int dias, boolean devolvido) {
 			System.out.println(
 				"Livro = " + titulo.getTitulo() +
-				"\nUsuario = " + usuario.getNome() +
+				"\nUsuario = " + usuario.getIdUsuario() +
 				"\nData do emprestimo = " + dataEmprestimo() +
 				"\nData prevista de devolução = " + dataPrevistaDevolucao() +
 				"\nData de devolução = " + dataFinalDevolucao(dias) +
@@ -128,7 +128,7 @@ public class Emprestimo {
 	@Override
 	public String toString() {
 		return "Livro = " + titulo.getTitulo() +
-				"\nUsuario = " + usuario.getNome() +
+				"\nUsuario = " + usuario.getIdUsuario() +
 				"\nData do emprestimo = " + dataEmprestimo() +
 				"\nData prevista de devolução = " + dataPrevistaDevolucao() +
 				"\nData de devolução = " + dataFinalDevolucao(10) +
