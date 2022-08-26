@@ -13,10 +13,13 @@ public class Livro {
 	private int edicao;
 	private String editora;
 	private String ISBN;
-
+	private double valor;
+	int qntdEmEstoque;
+	
 	private Autor autor = new Autor();
+	Estoque estoque = new Estoque();
 
-	public Livro(String titulo, Autor autor, String ano, int edicao, String editora, String ISBN)
+	public Livro(String titulo, Autor autor, String ano, int edicao, String editora, String ISBN, double valor)
 			throws ParseException {
 		this.titulo = titulo;
 		this.autor = autor;
@@ -25,6 +28,16 @@ public class Livro {
 		this.edicao = edicao;
 		this.editora = editora;
 		this.ISBN = ISBN;
+		this.qntdEmEstoque = estoque.getQntd();
+		this.valor = valor;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 
 	public Livro() {

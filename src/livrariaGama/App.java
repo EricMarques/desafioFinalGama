@@ -17,35 +17,41 @@ import java.util.stream.Stream;
 public class App {
 
 	public static List<Autor> autores = new ArrayList<Autor>();
-	public static List<Livro> livros = new ArrayList<Livro>();
-
+	public static List<Livro> estoque = new ArrayList<Livro>();
+	
+	
+	
 	public static void main(String[] args) throws ParseException {
-
+		Compra comprar = new Compra();
+		Estoque estoq = new Estoque();
 		initData();
-
-
+		estoq.setQntd();
+		System.out.println(estoq.getQntd());
 		getLivroDoAutor("Patati");
-		//getAutorPeloLivro("Harry Potter");
+		comprar.realizarCompra(estoque.get(0), 2);
+		
+		
+		
 
 	}
-
-	// Refatorar codigo com o professor
+	
+	
 	public static String getLivroDoAutor(String nomeAutor) {
 		List<Livro> livro = new ArrayList<>();
 		//String titulos = "";
-		livro.addAll(livros);
+		livro.addAll(estoque);
 		livro.stream().filter(i -> i.getAutor().getNome() == nomeAutor).forEach(
-				i -> System.out.println("Os livros cadastrados do autor " + nomeAutor + " são: \n" + i.getTitulo()));
+				i -> System.out.println("Os estoque cadastrados do autor " + nomeAutor + " são: \n" + i.getTitulo()));
 
 				return livro.get(0).getTitulo();
 	}
 
 	public static String getAutorPeloLivro(String nomeLivro) {
 		List<Livro> livro = new ArrayList<>();
-		livro.addAll(livros);
+		livro.addAll(estoque);
 		livro.stream().filter(i -> i.getTitulo() == nomeLivro).forEach(
 				i -> System.out.println(
-						"Os livros cadastrados do autor de " + nomeLivro + " são: \n" + i.getAutor().getNome()));
+						"Os estoque cadastrados do autor de " + nomeLivro + " são: \n" + i.getAutor().getNome()));
 		return livro.toString();
 	}
 
@@ -56,10 +62,11 @@ public class App {
 
 		autores.addAll(Arrays.asList(autor1, autor2, autor3));
 
-		livros.add(new Livro("Harry Potter", autor1, "22/07/2018", 5, "Calice", ""));
-		livros.add(new Livro("O Aluno Iluminado", autor2, "01/04/2022", 4, "Patatá", "ABC12344"));
-		livros.add(new Livro("Independencia ou Brasil", autor2, "01/07/1980", 1, "Atlas", "EWRT32432)"));
-		livros.add(new Livro("Independencia ou Brasil - O retorno", autor3, "01/07/1980", 1, "Atlas", "EWRT32432"));
+		estoque.add(new Livro("Harry Potter", autor1, "22/07/2018", 5, "Calice", "", 20.00));
+		estoque.add(new Livro("O Aluno Iluminado", autor2, "01/04/2022", 4, "Patatá", "ABC12344", 15.35));
+		estoque.add(new Livro("Independencia ou Brasil", autor2, "01/07/1980", 1, "Atlas", "EWRT32432)", 22.33));
+		estoque.add(new Livro("Independencia ou Brasil - O retorno", autor3, "01/07/1980", 1, "Atlas", "EWRT32432", 30.35));
+		
 	}
 
 }
